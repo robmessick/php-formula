@@ -90,6 +90,51 @@
                 'ini': '/etc/php.ini',
             },
         },
+	'FreeBSD': {
+	    'pkgs': {
+                'php': 'php5',
+                'apc': 'pecl-APC',
+                'cgi': 'php5',
+                'cli': 'php5',
+                'curl': 'php5-curl',
+                'fpm': 'php5',
+                'gd': 'php5-gd',
+                'intl': 'pecl-intl',
+                'mbstring': 'php5-mbstring',
+                'mcrypt': 'php5-mcrypt',
+                'memcache': 'pecl-memcache',
+                'memcached': 'pecl-memcached',
+                'mysql': 'php5-mysql', 
+                'mysqlnd': 'php5-mysql', # This is a port option on FreeBSD
+                'pear': 'pear',
+                'soap': 'php5-soap',
+                'xml': 'php5-xml',
+                'redis': 'php5-redis',
+                'imagick': 'pecl-imagick',
+                'suhosin': 'php-suhosin',
+                'imap': 'php5-imap',
+                'adodb': 'adodb5',
+                'pgsql': 'php5-pgsql',
+                'ldap': 'php5-ldap',
+                'json': 'php5-json',
+            },
+            'fpm': {
+                'conf': '/usr/local/etc/php-fpm.conf',
+                'ini': '/usr/local/etc/php.ini',
+                'pools': '/usr/local/etc/fpm.d',
+                'service': 'php-fpm',
+                'defaults': {
+                    'global': {
+                        'pid': '/var/run/php-fpm.pid',
+                        'error_log': '/var/log/php-fpm.log',
+                        'include': '/usr/local/etc/fpm.d/*.conf',
+                    },
+                },
+            },
+            'cli': {
+                'ini': '/usr/local/etc/php.ini',
+            },
+	},
     }),
     'fpm': {
         'service': {
